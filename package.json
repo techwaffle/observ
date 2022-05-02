@@ -1,0 +1,37 @@
+{
+  "name": "observ",
+  "description": "Analytics and Experiment Library Monorepo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techwaffle/observ"
+  },
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**"
+        ]
+      }
+    }
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  }
+}
