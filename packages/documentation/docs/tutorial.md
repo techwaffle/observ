@@ -7,7 +7,7 @@ This tutorial will walk you through the most basic way to set up Observ in your 
 To get started, begin by installing the package in your react application:
 
 ```bash npm2yarn
-npm install @techwaffle/observ
+npm install @observjs/core
 ```
 
 ## Setting Up the Provider
@@ -19,7 +19,7 @@ Firstly, wrap your application in the provider like so:
 ### Create React App
 
 ```jsx
-import { ObservProvider } from "@techwaffle/observ";
+import { ObservProvider } from "@observjs/core";
 
 ReactDOM.render(
   <ObservProvider>
@@ -34,7 +34,7 @@ ReactDOM.render(
 If you're using Next.js, you'll want to wrap your application from within `_app.js`:
 
 ```jsx
-import { ObservProvider } from "@techwaffle/observ";
+import { ObservProvider } from "@observjs/core";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -112,7 +112,7 @@ In the above example, we've configured an experiement to show either 'Foo' or 'B
 In your page, import the `Element` component and place it where you'd like it to show. For this tutorial, I'll have it as the only component on the page:
 
 ```jsx
-import { Element } from "@techwaffle/observ";
+import { Element } from "@observjs/core";
 
 const Home = () => {
   return (

@@ -1,6 +1,6 @@
 {
-  "name": "@techwaffle/observ",
-  "version": "0.0.70",
+  "name": "@observjs/core",
+  "version": "0.0.1",
   "description": "Observ and Experiment Library",
   "repository": {
     "type": "git",
