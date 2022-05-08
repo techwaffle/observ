@@ -41,6 +41,18 @@ const sidebars = {
       ],
       collapsed: false,
     },
+    {
+      type: "category",
+      label: "Plugins",
+      items: [
+        {
+          type: "doc",
+          id: "plugins/google-sheets",
+          label: "Google Sheets",
+        },
+      ],
+      collapsed: false,
+    },
   ],
 };
 

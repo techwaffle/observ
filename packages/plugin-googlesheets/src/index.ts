@@ -1,8 +1,9 @@
 import { google } from 'googleapis';
 import { ExperimentData, VariantData } from '@observjs/types';
 import {
+  FetchAPIConfig,
+  GetAllExperimentsConfig,
   GoogleAuthClientScopes,
-  ObservGoogleSheetsPluginConfig,
   ServiceAccountCredentials,
 } from './types';
 
@@ -62,12 +63,12 @@ const segmentExperimentRows = (rows: string[][]) => {
   return experiments;
 };
 
-const ObservGoogleSheetsPlugin = async ({
+const fetchAPI = async ({
   clientEmail,
   privateKey,
   spreadsheetId,
   range,
-}: ObservGoogleSheetsPluginConfig) => {
+}: FetchAPIConfig) => {
   const auth = createGoogleAuthClient(
     {
       client_email: clientEmail,
@@ -90,6 +91,32 @@ const ObservGoogleSheetsPlugin = async ({
   const experiments = segmentExperimentRows(values as string[][]);
 
   return experiments;
+};
+
+const getAllExperiments = ({ url }: GetAllExperimentsConfig) => {
+  return async (): Promise<ExperimentData[]> => {
+    if (!url) {
+      throw new Error(
+        'You must provide a URL to the getAllExperiments function in the ObservGoogleSheetsPlugin.'
+      );
+    }
+    const request = new Request(url);
+    const experiments: ExperimentData[] = await fetch(request).then((res) => {
+      if (!res.ok) {
+        throw new Error(
+          `ObservGoogleSheetsPlugin HTTP error! Status: ${res.status}.`
+        );
+      }
+
+      return res.json();
+    });
+    return [...experiments];
+  };
+};
+
+const ObservGoogleSheetsPlugin = {
+  getAllExperiments,
+  fetchAPI,
 };
 
 export default ObservGoogleSheetsPlugin;

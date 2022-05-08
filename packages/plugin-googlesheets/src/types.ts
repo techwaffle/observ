@@ -5,9 +5,13 @@ export type ServiceAccountCredentials = {
 
 export type GoogleAuthClientScopes = string | string[];
 
-export type ObservGoogleSheetsPluginConfig = {
+export type FetchAPIConfig = {
   clientEmail: string;
   privateKey: string;
   spreadsheetId: string;
   range: string;
+};
+
+export type GetAllExperimentsConfig = {
+  url: string;
 };
