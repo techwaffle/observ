@@ -10,8 +10,8 @@ For simplicity, let's say we want to run an experiment to find out what the most
 
 In our example, we are working with our button element. Our element can have multiple options, for example it could be a blue button with white text, or a red outlined button with red text. You think think of these options as the different forms our element can take throughout the experiment. Some users will see the blue button, others will see the red button.
 
-![Blue Button](/img/blue-button.png)
-![Red Button](/img/red-button.png)
+<img src="/img/blue-button.png" alt="Blue Button" width="400"/>
+<img src="/img/red-button.png" alt="Red Button" width="400"/>
 
 We would then create both of these options in our code to use in the experiment.
 
