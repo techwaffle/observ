@@ -1,4 +1,4 @@
-import { ActiveExperiments, ExperimentId, VariantData } from '../types';
+import { ActiveExperiments, ExperimentId, VariantData } from '@observjs/types';
 
 export const weightedRand = (variants: VariantData) => {
   let weightSum = 0;

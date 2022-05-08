@@ -1,6 +1,10 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { ObservProvider, Element } from '.';
-import { ObservEvent, ObservProviderConfig, GetAllExperiments } from './types';
+import {
+  ObservEvent,
+  ObservProviderConfig,
+  GetAllExperiments,
+} from '@observjs/types';
 
 const mockSendEvent = jest.fn();
 const mockLogExperimentId = jest.fn();

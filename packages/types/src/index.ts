@@ -4,6 +4,16 @@ export type ObservEvent =
     }
   | string;
 
+export type ElementId = string;
+
+export type ElementOptionId = string;
+
+export type ExperimentId = string;
+
+export type ElementOptions = {
+  [index: ElementOptionId]: JSX.Element;
+};
+
 export type VariantId = string;
 
 export type Weight = number;
@@ -51,13 +61,3 @@ export type ObservContext = DefaultObservProviderConfig &
   Partial<ObservProviderConfig> & {
     experiments: ExperimentsContext;
   };
-
-export type ElementId = string;
-
-export type ElementOptionId = string;
-
-export type ExperimentId = string;
-
-export type ElementOptions = {
-  [index: ElementOptionId]: JSX.Element;
-};

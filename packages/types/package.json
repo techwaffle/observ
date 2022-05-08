@@ -1,0 +1,27 @@
+{
+  "name": "@observjs/types",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "description": "Observ TypeScript Types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techwaffle/observ"
+  },
+  "author": "Matt Kinnersley",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup ./src/index.ts --dts",
+    "dev": "tsup ./src/index.ts --dts --watch"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.6.2",
+    "tsup": "^5.12.6",
+    "typescript": "^4.6.4"
+  }
+}

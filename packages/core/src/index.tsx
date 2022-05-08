@@ -5,7 +5,7 @@ import {
   DefaultObservProviderConfig,
   ObservContext,
   ExperimentsContext,
-} from './types';
+} from '@observjs/types';
 
 export * from './components/Element';
 

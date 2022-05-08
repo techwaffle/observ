@@ -12,7 +12,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
@@ -27,6 +29,14 @@
         "outputs": [
           "dist/**"
         ]
+      },
+      "dev": {
+        "outputs": [
+          "dist/**"
+        ]
+      },
+      "test": {
+        "outputs": []
       }
     }
   },

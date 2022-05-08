@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useObserv } from '../..';
-import { ElementId, ElementOptions, ExperimentId } from '../../types';
+import { ElementId, ElementOptions, ExperimentId } from '@observjs/types';
 import {
   getExperimentById,
   getRandomVariant,

@@ -46,9 +46,9 @@ var __toCommonJS = /* @__PURE__ */ ((cache) => {
 // src/index.tsx
 var src_exports = {};
 __export(src_exports, {
-  AnalyticsProvider: () => AnalyticsProvider,
   Element: () => Element,
-  useAnalytics: () => useAnalytics
+  ObservProvider: () => ObservProvider,
+  useObserv: () => useObserv
 });
 var import_react2 = __toESM(require("react"));
 
@@ -84,12 +84,12 @@ var Element = ({
   skeleton
 }) => {
   const [option, setOption] = (0, import_react.useState)(null);
-  const { sendEvent, logExperimentId, experiments, getAllExperiments } = useAnalytics();
+  const { sendEvent, logExperimentId, experiments, getAllExperiments } = useObserv();
   const fallbackComponent = fallback || null;
   const experimentElementKey = `${experimentId}-${id}`;
   (0, import_react.useEffect)(() => {
     if (!getAllExperiments) {
-      throw Error("To use the Element component, you must configure getAllExperiments in the AnalyticsProvider");
+      throw Error("To use the Element component, you must configure getAllExperiments in the ObservProvider");
     }
   }, [getAllExperiments]);
   (0, import_react.useEffect)(() => {
@@ -135,7 +135,7 @@ var Element = ({
 };
 
 // src/index.tsx
-var defaultAnalyticsConfig = {
+var defaultObservConfig = {
   sendEvent: (event) => {
     console.log(event);
   },
@@ -146,13 +146,10 @@ var defaultAnalyticsConfig = {
     console.log(path);
   }
 };
-var AnalyticsContextInstance = import_react2.default.createContext(__spreadProps(__spreadValues({}, defaultAnalyticsConfig), {
+var ObservContextInstance = import_react2.default.createContext(__spreadProps(__spreadValues({}, defaultObservConfig), {
   experiments: []
 }));
-function AnalyticsProvider({
-  config,
-  children
-}) {
+function ObservProvider({ config, children }) {
   const [experiments, setExperiments] = (0, import_react2.useState)([]);
   (0, import_react2.useEffect)(() => {
     if (experiments.length <= 0 && config && config.getAllExperiments) {
@@ -163,15 +160,15 @@ function AnalyticsProvider({
       });
     }
   }, [config, experiments]);
-  return /* @__PURE__ */ import_react2.default.createElement(AnalyticsContextInstance.Provider, {
-    value: __spreadProps(__spreadValues(__spreadValues({}, defaultAnalyticsConfig), config), { experiments })
+  return /* @__PURE__ */ import_react2.default.createElement(ObservContextInstance.Provider, {
+    value: __spreadProps(__spreadValues(__spreadValues({}, defaultObservConfig), config), { experiments })
   }, children);
 }
-var useAnalytics = () => (0, import_react2.useContext)(AnalyticsContextInstance);
+var useObserv = () => (0, import_react2.useContext)(ObservContextInstance);
 module.exports = __toCommonJS(src_exports);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  AnalyticsProvider,
   Element,
-  useAnalytics
+  ObservProvider,
+  useObserv
 });
