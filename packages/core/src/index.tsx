@@ -34,7 +34,7 @@ type ObservProviderProps = {
 export function ObservProvider({ config, children }: ObservProviderProps) {
   const [experiments, setExperiments] = useState<ExperimentsContext>([]);
   useEffect(() => {
-    if (experiments.length <= 0 && config && config.getAllExperiments) {
+    if (experiments.length <= 0 && config?.getAllExperiments) {
       config.getAllExperiments().then((data) => {
         if (data) {
           setExperiments(data);
